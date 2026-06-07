@@ -1,0 +1,28 @@
+# Data Absorber Student
+
+A student productivity platform designed to help students organize notes, documents, assignments, and academic resources in one place.
+
+## Features
+
+- Subject Management
+- Notes Management
+- PDF Uploads
+- Assignment Tracking
+- Calendar Events
+
+## Tech Stack
+
+- Python
+- FastAPI
+- SQLite
+- HTML
+- CSS
+- JavaScript
+
+## Roadmap
+
+- AI Study Assistant
+- Flashcards
+- Quiz Generator
+- Student Collaboration
+- Note Sharing
