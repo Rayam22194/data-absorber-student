@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Absorber Student</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <main id="auth-screen" class="auth-screen">
+      <section class="auth-card">
+        <p class="micro-label">Academic hub</p>
+        <h1>Data Absorber For Student</h1>
+        <p class="headline">Everything you need to study.</p>
+        <div class="auth-actions">
+          <button id="show-login" class="primary-button">Login</button>
+          <button id="show-signup" class="secondary-button">New User</button>
+        </div>
+
+        <div id="auth-forms">
+          <form id="login-form" class="auth-form hidden">
+            <h2>Login</h2>
+            <label>Email<input type="email" name="email" required /></label>
+            <label>Password
+              <div class="password-field">
+                <input type="password" name="password" required />
+                <button type="button" class="password-toggle" aria-label="Show password">👁</button>
+              </div>
+            </label>
+            <div class="form-actions">
+              
+              <button type="submit" class="primary-button">Login</button>
+            </div>
+          </form>
+
+          <form id="signup-form" class="auth-form hidden">
+            <h2>Create Account</h2>
+            <label>First name<input type="text" name="first_name" required /></label>
+            <label>Last name<input type="text" name="last_name" required /></label>
+            <label>Email<input type="email" name="email" required /></label>
+            <label>Password
+              <div class="password-field">
+                <input type="password" name="password" required />
+                <button type="button" class="password-toggle" aria-label="Show password">👁</button>
+              </div>
+            </label>
+            <div class="form-actions">
+              <button type="submit" class="primary-button">Create Account</button>
+            </div>
+          </form>
+        </div>
+
+        <p id="auth-message" class="footer-note"></p>
+      </section>
+    </main>
+
+    <div id="app-content" class="hidden">
+      <header class="app-header">
+        <div class="top-header row-between">
+          <div>
+            <p class="micro-label">Academic hub</p>
+            <h1>Data Absorber Student</h1>
+            <p class="headline">Keep notes, documents, assignments, and subjects in one place.</p>
+          </div>
+          <div class="user-actions">
+            <span id="user-welcome"></span>
+            <button id="logout-button" class="secondary-button">Logout</button>
+          </div>
+        </div>
+
+        <nav class="top-nav">
+          <button data-section="dashboard" class="nav-button active">Dashboard</button>
+          <button data-section="subjects" class="nav-button">Subjects</button>
+          <button data-section="notes" class="nav-button">Notes</button>
+          <button data-section="documents" class="nav-button">Documents</button>
+          <button data-section="assignments" class="nav-button">Assignments</button>
+          <button data-section="calendar" class="nav-button">Calendar</button>
+        </nav>
+      </header>
+
+      <main class="content-area">
+        <section id="dashboard" class="page-section">
+          <div class="section-header">
+            <h2>Dashboard</h2>
+            <p>Overview of upcoming assignments, exams, and subjects.</p>
+          </div>
+          <div id="dashboard-summary" class="dashboard-summary"></div>
+          <div class="grid-layout" id="dashboard-cards"></div>
+        </section>
+
+        <section id="subjects" class="page-section hidden">
+          <div class="section-header row-between">
+            <div>
+              <h2>Subjects</h2>
+              <p>Organize your classes and learning topics.</p>
+            </div>
+            <button id="new-subject-btn" class="primary-button">Add Subject</button>
+          </div>
+          <div class="grid-layout" id="subject-list"></div>
+        </section>
+
+        <section id="notes" class="page-section hidden">
+          <div class="section-header row-between">
+            <div>
+              <h2>Notes</h2>
+              <p>Create and edit notes by subject.</p>
+            </div>
+            <button id="new-note-btn" class="primary-button">New Note</button>
+          </div>
+          <div class="section-toolbar">
+            <input id="notes-search" type="search" placeholder="Search notes..." />
+            <select id="notes-subject-filter"><option value="">All subjects</option></select>
+          </div>
+          <div id="notes-list" class="stack-list"></div>
+        </section>
+
+        <section id="documents" class="page-section hidden">
+          <div class="section-header row-between">
+            <div>
+              <h2>Documents</h2>
+              <p>Track your PDFs and document references.</p>
+            </div>
+            <button id="new-document-btn" class="primary-button">Add Document</button>
+          </div>
+          <div class="section-toolbar">
+            <input id="documents-search" type="search" placeholder="Search documents..." />
+            <select id="documents-subject-filter"><option value="">All subjects</option></select>
+          </div>
+          <div id="document-drop-zone" class="drop-zone">
+            <p>Drag & drop PDF files here to upload</p>
+            <p class="footer-note">Or click to select a file for your notes and subjects.</p>
+          </div>
+          <input id="document-file-input" type="file" accept=".pdf" class="hidden" />
+          <div id="documents-list" class="stack-list"></div>
+        </section>
+
+        <section id="assignments" class="page-section hidden">
+          <div class="section-header row-between">
+            <div>
+              <h2>Assignments</h2>
+              <p>Track due dates, status, and progress.</p>
+            </div>
+            <button id="new-assignment-btn" class="primary-button">Add Assignment</button>
+          </div>
+          <div class="section-toolbar">
+            <input id="assignments-search" type="search" placeholder="Search assignments..." />
+            <select id="assignments-subject-filter"><option value="">All subjects</option></select>
+          </div>
+          <div id="assignments-list" class="stack-list"></div>
+        </section>
+
+        <section id="calendar" class="page-section hidden">
+          <div class="section-header row-between">
+            <div>
+              <h2>Calendar</h2>
+              <p>Schedule exams, study sessions and assignment due dates.</p>
+            </div>
+            <button id="new-event-btn" class="primary-button">Add Event</button>
+          </div>
+          <div class="section-toolbar">
+            <input id="events-search" type="search" placeholder="Search calendar events..." />
+            <select id="events-type-filter"><option value="">All types</option><option value="study">Study</option><option value="exam">Exam</option><option value="assignment">Assignment</option></select>
+          </div>
+          <div id="calendar-list" class="stack-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <div id="modal-root" class="modal-root hidden"></div>
+  </div>
+
+  <script src="../javascript/app.js"></script>
+</body>
+</html>
